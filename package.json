@@ -1,0 +1,39 @@
+{
+	"name": "raunk-butik",
+	"private": true,
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"type": "module",
+	"scripts": {
+		"dev": "turbo dev",
+		"build": "turbo build",
+		"check-types": "turbo check-types",
+		"check": "biome check --fix && pnpm run check-types",
+		"dev:native": "turbo -F native dev",
+		"dev:web": "turbo -F web dev",
+		"db:push": "turbo -F @raunk-butik/db db:push",
+		"db:studio": "turbo -F @raunk-butik/db db:studio",
+		"db:generate": "turbo -F @raunk-butik/db db:generate",
+		"db:migrate": "turbo -F @raunk-butik/db db:migrate",
+		"db:migrate:staging": "turbo -F @raunk-butik/db db:migrate:staging",
+		"db:migrate:production": "turbo -F @raunk-butik/db db:migrate:production",
+		"db:local": "turbo -F @raunk-butik/db db:local",
+		"deploy:staging": "pnpm -F web deploy:staging",
+		"deploy:production": "pnpm -F web deploy:production"
+	},
+	"dependencies": {
+		"@raunk-butik/env": "workspace:*",
+		"dotenv": "catalog:",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.2",
+		"@raunk-butik/config": "workspace:*",
+		"@types/node": "catalog:",
+		"turbo": "^2.6.3",
+		"typescript": "catalog:"
+	},
+	"packageManager": "pnpm@10.26.0"
+}

@@ -1,0 +1,25 @@
+{
+	"name": "@raunk-butik/email",
+	"type": "module",
+	"exports": {
+		".": {
+			"default": "./src/index.ts"
+		}
+	},
+	"scripts": {
+		"lint": "biome check .",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@raunk-butik/env": "workspace:*",
+		"@react-email/components": "^1.0.8",
+		"nodemailer": "catalog:",
+		"react": "19.2.3"
+	},
+	"devDependencies": {
+		"@raunk-butik/config": "workspace:*",
+		"@types/nodemailer": "catalog:",
+		"@types/react": "19.2.7",
+		"typescript": "catalog:"
+	}
+}

@@ -1,0 +1,32 @@
+"$schema" = "node_modules/wrangler/config-schema.json"
+name = "raunk-butik"
+compatibility_date = "2026-03-01"
+compatibility_flags = [ "nodejs_compat" ]
+main = "@tanstack/react-start/server-entry"
+
+[observability]
+[observability.logs]
+enabled = true
+invocation_logs = true
+
+[env.production]
+name = "raunk-butik"
+workers_dev = false
+
+[[env.production.routes]]
+pattern = "raunkbutik.com"
+custom_domain = true
+
+[env.production.vars]
+NODE_ENV = "production"
+
+[env.staging]
+name = "raunk-butik-staging"
+workers_dev = false
+
+[[env.staging.routes]]
+pattern = "staging.raunkbutik.com"
+custom_domain = true
+
+[env.staging.vars]
+NODE_ENV = "production"

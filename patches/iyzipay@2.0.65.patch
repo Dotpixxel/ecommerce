@@ -1,0 +1,203 @@
+diff --git a/lib/Iyzipay.js b/lib/Iyzipay.js
+index cd9e225d44bcff3b98a10470d1482c752dc8a2cb..d31db1a4871552c3980b1597f663780b3997cbfb 100644
+--- a/lib/Iyzipay.js
++++ b/lib/Iyzipay.js
+@@ -41,14 +41,65 @@ function Iyzipay(config) {
+ 
+ Iyzipay.prototype._initResources = function () {
+     var _self = this;
+-    var modelsPath = __dirname + '/resources';
+-    fs.readdirSync(modelsPath).forEach(function (fileName) {
+-        if (~fileName.indexOf('.js')) {
+-            var resource = require(modelsPath + '/' + fileName);
+-            var resourceName = fileName.split('.js')[0];
+-            _self[resourceName[0].toLowerCase() + resourceName.substring(1)] = new resource(_self._config);
+-        }
+-    });
++    _self.apiTest = new (require('./resources/ApiTest.js'))(_self._config);
++    _self.apm = new (require('./resources/Apm.js'))(_self._config);
++    _self.approval = new (require('./resources/Approval.js'))(_self._config);
++    _self.basicBkm = new (require('./resources/BasicBkm.js'))(_self._config);
++    _self.basicBkmInitialize = new (require('./resources/BasicBkmInitialize.js'))(_self._config);
++    _self.basicPayment = new (require('./resources/BasicPayment.js'))(_self._config);
++    _self.basicPaymentPostAuth = new (require('./resources/BasicPaymentPostAuth.js'))(_self._config);
++    _self.basicPaymentPreAuth = new (require('./resources/BasicPaymentPreAuth.js'))(_self._config);
++    _self.basicThreedsInitialize = new (require('./resources/BasicThreedsInitialize.js'))(_self._config);
++    _self.basicThreedsInitializePreAuth = new (require('./resources/BasicThreedsInitializePreAuth.js'))(_self._config);
++    _self.basicThreedsPayment = new (require('./resources/BasicThreedsPayment.js'))(_self._config);
++    _self.binNumber = new (require('./resources/BinNumber.js'))(_self._config);
++    _self.bkm = new (require('./resources/Bkm.js'))(_self._config);
++    _self.bkmInitialize = new (require('./resources/BkmInitialize.js'))(_self._config);
++    _self.bouncedBankTransferList = new (require('./resources/BouncedBankTransferList.js'))(_self._config);
++    _self.cancel = new (require('./resources/Cancel.js'))(_self._config);
++    _self.card = new (require('./resources/Card.js'))(_self._config);
++    _self.cardList = new (require('./resources/CardList.js'))(_self._config);
++    _self.checkoutForm = new (require('./resources/CheckoutForm.js'))(_self._config);
++    _self.checkoutFormInitialize = new (require('./resources/CheckoutFormInitialize.js'))(_self._config);
++    _self.checkoutFormInitializePreAuth = new (require('./resources/CheckoutFormInitializePreAuth.js'))(_self._config);
++    _self.crossBookingFromSubMerchant = new (require('./resources/CrossBookingFromSubMerchant.js'))(_self._config);
++    _self.crossBookingToSubMerchant = new (require('./resources/CrossBookingToSubMerchant.js'))(_self._config);
++    _self.disapproval = new (require('./resources/Disapproval.js'))(_self._config);
++    _self.installmentHtml = new (require('./resources/InstallmentHtml.js'))(_self._config);
++    _self.installmentInfo = new (require('./resources/InstallmentInfo.js'))(_self._config);
++    _self.iyziLink = new (require('./resources/IyziLink.js'))(_self._config);
++    _self.payWithIyzico = new (require('./resources/PayWithIyzico.js'))(_self._config);
++    _self.payment = new (require('./resources/Payment.js'))(_self._config);
++    _self.paymentItem = new (require('./resources/PaymentItem.js'))(_self._config);
++    _self.paymentPostAuth = new (require('./resources/PaymentPostAuth.js'))(_self._config);
++    _self.paymentPreAuth = new (require('./resources/PaymentPreAuth.js'))(_self._config);
++    _self.payoutCompletedTransactionList = new (require('./resources/PayoutCompletedTransactionList.js'))(_self._config);
++    _self.peccoInitialize = new (require('./resources/PeccoInitialize.js'))(_self._config);
++    _self.peccoPayment = new (require('./resources/PeccoPayment.js'))(_self._config);
++    _self.refund = new (require('./resources/Refund.js'))(_self._config);
++    _self.refundChargedFromMerchant = new (require('./resources/RefundChargedFromMerchant.js'))(_self._config);
++    _self.refundToBalance = new (require('./resources/RefundToBalance.js'))(_self._config);
++    _self.refundV2 = new (require('./resources/RefundV2.js'))(_self._config);
++    _self.reportingBouncedPayments = new (require('./resources/ReportingBouncedPayments.js'))(_self._config);
++    _self.reportingPayoutCompleted = new (require('./resources/ReportingPayoutCompleted.js'))(_self._config);
++    _self.reportingScrollTransactions = new (require('./resources/ReportingScrollTransactions.js'))(_self._config);
++    _self.reportingTransactionDetails = new (require('./resources/ReportingTransactionDetails.js'))(_self._config);
++    _self.reportingTransactions = new (require('./resources/ReportingTransactions.js'))(_self._config);
++    _self.settlementToBalance = new (require('./resources/SettlementToBalance.js'))(_self._config);
++    _self.subMerchant = new (require('./resources/SubMerchant.js'))(_self._config);
++    _self.subscription = new (require('./resources/Subscription.js'))(_self._config);
++    _self.subscriptionCard = new (require('./resources/SubscriptionCard.js'))(_self._config);
++    _self.subscriptionCheckoutForm = new (require('./resources/SubscriptionCheckoutForm.js'))(_self._config);
++    _self.subscriptionCustomer = new (require('./resources/SubscriptionCustomer.js'))(_self._config);
++    _self.subscriptionExistingCustomer = new (require('./resources/SubscriptionExistingCustomer.js'))(_self._config);
++    _self.subscriptionPayment = new (require('./resources/SubscriptionPayment.js'))(_self._config);
++    _self.subscriptionPricingPlan = new (require('./resources/SubscriptionPricingPlan.js'))(_self._config);
++    _self.subscriptionProduct = new (require('./resources/SubscriptionProduct.js'))(_self._config);
++    _self.threedsInitialize = new (require('./resources/ThreedsInitialize.js'))(_self._config);
++    _self.threedsInitializePreAuth = new (require('./resources/ThreedsInitializePreAuth.js'))(_self._config);
++    _self.threedsPayment = new (require('./resources/ThreedsPayment.js'))(_self._config);
++    _self.threedsV2Payment = new (require('./resources/ThreedsV2Payment.js'))(_self._config);
++    _self.universalCardStorageInitialize = new (require('./resources/UniversalCardStorageInitialize.js'))(_self._config);
+ };
+ 
+ Iyzipay.prototype._validateIyzipayOptions = function (config) {
+diff --git a/lib/IyzipayResource.js b/lib/IyzipayResource.js
+index 8d264e769c4b21a122b64b25f72b152126d135cf..d166829f7ed14af950d30073689e1010d1064812 100644
+--- a/lib/IyzipayResource.js
++++ b/lib/IyzipayResource.js
+@@ -3,6 +3,84 @@
+ const request = require('postman-request');
+ const utils = require('./utils');
+ 
++const requestMap = {
++    'BaseRequest': require('./requests/BaseRequest.js'),
++    'CreateApmInitializeRequest': require('./requests/CreateApmInitializeRequest.js'),
++    'CreateApprovalRequest': require('./requests/CreateApprovalRequest.js'),
++    'CreateBasicBkmInitializeRequest': require('./requests/CreateBasicBkmInitializeRequest.js'),
++    'CreateBasicPaymentRequest': require('./requests/CreateBasicPaymentRequest.js'),
++    'CreateBkmInitializeRequest': require('./requests/CreateBkmInitializeRequest.js'),
++    'CreateCancelRequest': require('./requests/CreateCancelRequest.js'),
++    'CreateCardRequest': require('./requests/CreateCardRequest.js'),
++    'CreateCheckoutFormInitializeRequest': require('./requests/CreateCheckoutFormInitializeRequest.js'),
++    'CreateCrossBookingRequest': require('./requests/CreateCrossBookingRequest.js'),
++    'CreateIyziLinkFastLinkRequest': require('./requests/CreateIyziLinkFastLinkRequest.js'),
++    'CreateIyziLinkProductRequest': require('./requests/CreateIyziLinkProductRequest.js'),
++    'CreatePaymentPostAuthRequest': require('./requests/CreatePaymentPostAuthRequest.js'),
++    'CreatePaymentRequest': require('./requests/CreatePaymentRequest.js'),
++    'CreatePeccoInitializeRequest': require('./requests/CreatePeccoInitializeRequest.js'),
++    'CreatePeccoPaymentRequest': require('./requests/CreatePeccoPaymentRequest.js'),
++    'CreateRefundRequest': require('./requests/CreateRefundRequest.js'),
++    'CreateRefundToBalanceInitRequest': require('./requests/CreateRefundToBalanceInitRequest.js'),
++    'CreateRefundV2Request': require('./requests/CreateRefundV2Request.js'),
++    'CreateSettlementToBalanceInitRequest': require('./requests/CreateSettlementToBalanceInitRequest.js'),
++    'CreateSubMerchantRequest': require('./requests/CreateSubMerchantRequest.js'),
++    'CreateSubscriptionCheckoutFormInitRequest': require('./requests/CreateSubscriptionCheckoutFormInitRequest.js'),
++    'CreateSubscriptionCustomerRequest': require('./requests/CreateSubscriptionCustomerRequest.js'),
++    'CreateSubscriptionInitExistingCustomerRequest': require('./requests/CreateSubscriptionInitExistingCustomerRequest.js'),
++    'CreateSubscriptionInitRequest': require('./requests/CreateSubscriptionInitRequest.js'),
++    'CreateSubscriptionPaymentRetryRequest': require('./requests/CreateSubscriptionPaymentRetryRequest.js'),
++    'CreateSubscriptionPricingPlanPathRequest': require('./requests/CreateSubscriptionPricingPlanPathRequest.js'),
++    'CreateSubscriptionPricingPlanRequest': require('./requests/CreateSubscriptionPricingPlanRequest.js'),
++    'CreateSubscriptionProductRequest': require('./requests/CreateSubscriptionProductRequest.js'),
++    'CreateThreedsPaymentRequest': require('./requests/CreateThreedsPaymentRequest.js'),
++    'CreateThreedsV2PaymentRequest': require('./requests/CreateThreedsV2PaymentRequest.js'),
++    'CreateUniversalCardStorageInitializeRequest': require('./requests/CreateUniversalCardStorageInitializeRequest.js'),
++    'DeleteCardRequest': require('./requests/DeleteCardRequest.js'),
++    'DeleteSubscriptionPricingPlanPathRequest': require('./requests/DeleteSubscriptionPricingPlanPathRequest.js'),
++    'IyziLinkFastLinkQueryStringRequest': require('./requests/IyziLinkFastLinkQueryStringRequest.js'),
++    'IyziLinkPathRequest': require('./requests/IyziLinkPathRequest.js'),
++    'IyziLinkStatusPathRequest': require('./requests/IyziLinkStatusPathRequest.js'),
++    'PayWithIyzicoInitializeRequest': require('./requests/PayWithIyzicoInitializeRequest.js'),
++    'PayWithIyzicoRetrieveRequest': require('./requests/PayWithIyzicoRetrieveRequest.js'),
++    'RetrieveApmRequest': require('./requests/RetrieveApmRequest.js'),
++    'RetrieveBinNumberRequest': require('./requests/RetrieveBinNumberRequest.js'),
++    'RetrieveBkmRequest': require('./requests/RetrieveBkmRequest.js'),
++    'RetrieveBouncedPaymentsRequest': require('./requests/RetrieveBouncedPaymentsRequest.js'),
++    'RetrieveCardListRequest': require('./requests/RetrieveCardListRequest.js'),
++    'RetrieveCheckoutFormRequest': require('./requests/RetrieveCheckoutFormRequest.js'),
++    'RetrieveInstallmentInfoRequest': require('./requests/RetrieveInstallmentInfoRequest.js'),
++    'RetrieveIyziLinkProductListRequest': require('./requests/RetrieveIyziLinkProductListRequest.js'),
++    'RetrievePaymentRequest': require('./requests/RetrievePaymentRequest.js'),
++    'RetrievePayoutCompletedRequest': require('./requests/RetrievePayoutCompletedRequest.js'),
++    'RetrieveScrollTransactionsRequest': require('./requests/RetrieveScrollTransactionsRequest.js'),
++    'RetrieveSubMerchantRequest': require('./requests/RetrieveSubMerchantRequest.js'),
++    'RetrieveSubscriptionCheckoutFormPathRequest': require('./requests/RetrieveSubscriptionCheckoutFormPathRequest.js'),
++    'RetrieveSubscriptionCustomerListRequest': require('./requests/RetrieveSubscriptionCustomerListRequest.js'),
++    'RetrieveSubscriptionPricingPlanListPathRequest': require('./requests/RetrieveSubscriptionPricingPlanListPathRequest.js'),
++    'RetrieveSubscriptionPricingPlanListRequest': require('./requests/RetrieveSubscriptionPricingPlanListRequest.js'),
++    'RetrieveSubscriptionPricingPlanPathRequest': require('./requests/RetrieveSubscriptionPricingPlanPathRequest.js'),
++    'RetrieveSubscriptionProductListRequest': require('./requests/RetrieveSubscriptionProductListRequest.js'),
++    'RetrieveTransactionDetailsRequest': require('./requests/RetrieveTransactionDetailsRequest.js'),
++    'RetrieveTransactionsRequest': require('./requests/RetrieveTransactionsRequest.js'),
++    'SearchSubscriptionRequest': require('./requests/SearchSubscriptionRequest.js'),
++    'SubscriptionCustomerPathRequest': require('./requests/SubscriptionCustomerPathRequest.js'),
++    'SubscriptionPathRequest': require('./requests/SubscriptionPathRequest.js'),
++    'SubscriptionProductPathRequest': require('./requests/SubscriptionProductPathRequest.js'),
++    'UpdateIyziLinkProductRequest': require('./requests/UpdateIyziLinkProductRequest.js'),
++    'UpdateSubMerchantPaymentItemRequest': require('./requests/UpdateSubMerchantPaymentItemRequest.js'),
++    'UpdateSubMerchantRequest': require('./requests/UpdateSubMerchantRequest.js'),
++    'UpdateSubscriptionCardRequest': require('./requests/UpdateSubscriptionCardRequest.js'),
++    'UpdateSubscriptionCardWithSubscriptionReferenceCodeRequest': require('./requests/UpdateSubscriptionCardWithSubscriptionReferenceCodeRequest.js'),
++    'UpdateSubscriptionCustomerRequest': require('./requests/UpdateSubscriptionCustomerRequest.js'),
++    'UpdateSubscriptionPricingPlanPathRequest': require('./requests/UpdateSubscriptionPricingPlanPathRequest.js'),
++    'UpdateSubscriptionPricingPlanRequest': require('./requests/UpdateSubscriptionPricingPlanRequest.js'),
++    'UpdateSubscriptionProductRequest': require('./requests/UpdateSubscriptionProductRequest.js'),
++    'UpgradeSubscriptionRequest': require('./requests/UpgradeSubscriptionRequest.js'),
++};
++function _getRequestModel(name) { return requestMap[name]; }
++
++
+ function IyzipayResource() {
+ }
+ 
+@@ -58,7 +136,7 @@ IyzipayResource.prototype._getPathVariables = function (method) {
+     if (typeof this._api[method].pathVariables === 'undefined') {
+         return {};
+     } else {
+-        var RequestModel = require('./requests/' + this._api[method].pathVariables + '.js');
++        var RequestModel = _getRequestModel(this._api[method].pathVariables);
+         return new RequestModel(this._config.body).toJson();
+     }
+ };
+@@ -67,7 +145,7 @@ IyzipayResource.prototype._getBody = function (method) {
+     if (typeof this._api[method].requestModel === 'undefined') {
+         return {};
+     } else {
+-        var RequestModel = require('./requests/' + this._api[method].requestModel + '.js');
++        var RequestModel = _getRequestModel(this._api[method].requestModel);
+         return new RequestModel(this._config.body).toJson();
+     }
+ };
+@@ -76,7 +154,7 @@ IyzipayResource.prototype._getQueryString = function (method) {
+     if (typeof this._api[method].queryString === 'undefined') {
+         return {};
+     } else {
+-        var RequestModel = require('./requests/' + this._api[method].queryString + '.js');
++        var RequestModel = _getRequestModel(this._api[method].queryString);
+         return new RequestModel(this._config.body).toJson();
+     }
+ };
+@@ -85,7 +163,7 @@ IyzipayResource.prototype._getPkiString = function (method) {
+     if (typeof this._api[method].requestModel === 'undefined') {
+         return [];
+     } else {
+-        var RequestModel = require('./requests/' + this._api[method].requestModel + '.js');
++        var RequestModel = _getRequestModel(this._api[method].requestModel);
+         return new RequestModel(this._config.body).toPkiString();
+     }
+ };

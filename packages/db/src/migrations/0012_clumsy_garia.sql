@@ -1,0 +1,1 @@
+ALTER TABLE `order` ADD `shipping_fee` real DEFAULT 0 NOT NULL;

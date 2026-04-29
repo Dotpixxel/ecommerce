@@ -1,0 +1,34 @@
+{
+	"name": "@raunk-butik/auth",
+	"type": "module",
+	"exports": {
+		".": {
+			"default": "./src/index.ts"
+		},
+		"./*": {
+			"default": "./src/*.ts"
+		}
+	},
+	"scripts": {
+		"lint": "biome check .",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@raunk-butik/db": "workspace:*",
+		"@raunk-butik/email": "workspace:*",
+		"@raunk-butik/env": "workspace:*",
+		"@react-email/components": "^1.0.8",
+		"better-auth": "catalog:",
+		"dotenv": "catalog:",
+		"drizzle-orm": "^0.45.1",
+		"react": "19.2.3",
+		"uuid": "^13.0.0",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@raunk-butik/config": "workspace:*",
+		"@types/react": "19.2.7",
+		"@types/react-dom": "19.2.3",
+		"typescript": "catalog:"
+	}
+}

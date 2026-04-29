@@ -1,0 +1,22 @@
+packages:
+  - apps/*
+  - packages/*
+
+catalog:
+  '@libsql/client': 0.15.15
+  '@orpc/client': ^1.12.2
+  '@orpc/openapi': ^1.12.2
+  '@orpc/server': ^1.12.2
+  '@orpc/zod': ^1.12.2
+  '@types/node': ^22.13.14
+  '@types/nodemailer': ^6.4.17
+  better-auth: ^1.4.18
+  dotenv: ^17.2.2
+  libsql: 0.5.22
+  nodemailer: ^6.10.1
+  stripe: ^17.7.0
+  typescript: ^5
+  zod: ^4.1.13
+
+patchedDependencies:
+  iyzipay@2.0.65: patches/iyzipay@2.0.65.patch

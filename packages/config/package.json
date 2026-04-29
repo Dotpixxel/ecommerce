@@ -1,0 +1,8 @@
+{
+	"name": "@raunk-butik/config",
+	"scripts": {
+		"lint": "biome check ."
+	},
+	"version": "0.0.0",
+	"private": true
+}

@@ -1,0 +1,30 @@
+{
+	"version": 1,
+	"skills": {
+		"react-email": {
+			"source": "resend/react-email",
+			"sourceType": "github",
+			"computedHash": "9b8a308f7c8d5df05b0cf00e45348bffbd427d78dee3eef0b898e4b3da3e56d1"
+		},
+		"resend": {
+			"source": "resend/resend-skills",
+			"sourceType": "github",
+			"computedHash": "318cfafb6bb004da64d0eac0349d99997b8b1c75e55870a4104dff9b5ff4ee3d"
+		},
+		"sentry-fix-issues": {
+			"source": "getsentry/sentry-agent-skills",
+			"sourceType": "github",
+			"computedHash": "5673b169d2a0eb6e4651a57eba4263d1c04dce10e2955c97902f1e9f80109a52"
+		},
+		"sentry-react-sdk": {
+			"source": "getsentry/sentry-agent-skills",
+			"sourceType": "github",
+			"computedHash": "adeb2b14aa923976f0f7d4ffad7177f5f38d97d74ea0caadead521f6d17500f9"
+		},
+		"seo-audit": {
+			"source": "coreyhaines31/marketingskills",
+			"sourceType": "github",
+			"computedHash": "27156d103697411bba81520fef469e77bfba4c65d904c841e4965a158d531fbd"
+		}
+	}
+}

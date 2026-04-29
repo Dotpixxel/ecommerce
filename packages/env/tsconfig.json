@@ -1,0 +1,3 @@
+{
+	"extends": "@raunk-butik/config/tsconfig.base.json"
+}

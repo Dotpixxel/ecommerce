@@ -1,0 +1,1 @@
+ALTER TABLE `campaign` ADD `show_banner` integer DEFAULT true NOT NULL;

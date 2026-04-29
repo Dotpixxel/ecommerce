@@ -1,0 +1,43 @@
+{
+	"name": "@raunk-butik/api",
+	"type": "module",
+	"exports": {
+		".": {
+			"default": "./src/index.ts"
+		},
+		"./*": {
+			"default": "./src/*.ts"
+		}
+	},
+	"scripts": {
+		"lint": "biome check .",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@aws-sdk/client-s3": "^3.997.0",
+		"@aws-sdk/s3-request-presigner": "^3.997.0",
+		"@orpc/client": "catalog:",
+		"@orpc/openapi": "catalog:",
+		"@orpc/server": "catalog:",
+		"@orpc/zod": "catalog:",
+		"@raunk-butik/auth": "workspace:*",
+		"@raunk-butik/db": "workspace:*",
+		"@raunk-butik/email": "workspace:*",
+		"@raunk-butik/env": "workspace:*",
+		"@react-email/components": "^1.0.8",
+		"dotenv": "catalog:",
+		"drizzle-orm": "^0.45.1",
+		"iyzipay": "^2.0.65",
+		"react": "19.2.3",
+		"react-dom": "19.2.3",
+		"stripe": "catalog:",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@raunk-butik/config": "workspace:*",
+		"@types/iyzipay": "^2.0.3",
+		"@types/react": "19.2.7",
+		"@types/react-dom": "19.2.3",
+		"typescript": "catalog:"
+	}
+}

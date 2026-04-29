@@ -1,0 +1,41 @@
+{
+	"name": "@raunk-butik/db",
+	"type": "module",
+	"exports": {
+		".": {
+			"default": "./src/index.ts"
+		},
+		"./*": {
+			"default": "./src/*.ts"
+		}
+	},
+	"scripts": {
+		"dev": "pnpm db:studio",
+		"db:local": "turso dev --db-file local.db",
+		"db:push": "drizzle-kit push",
+		"db:generate": "drizzle-kit generate",
+		"db:studio": "drizzle-kit studio",
+		"db:migrate": "drizzle-kit migrate",
+		"db:migrate:staging": "APP_ENV=staging drizzle-kit migrate",
+		"db:migrate:production": "APP_ENV=production drizzle-kit migrate",
+		"seed": "pnpm dlx tsx src/seed.ts",
+		"lint": "biome check .",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@libsql/client": "catalog:",
+		"@raunk-butik/env": "workspace:*",
+		"dotenv": "catalog:",
+		"drizzle-orm": "^0.45.1",
+		"libsql": "catalog:",
+		"uuid": "^13.0.0",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@raunk-butik/config": "workspace:*",
+		"@types/uuid": "^11.0.0",
+		"drizzle-kit": "^0.31.8",
+		"drizzle-seed": "^0.3.1",
+		"typescript": "catalog:"
+	}
+}
