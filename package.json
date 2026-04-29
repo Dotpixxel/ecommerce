@@ -1,5 +1,5 @@
 {
-	"name": "raunk-butik",
+	"name": "ecommerce",
 	"private": true,
 	"workspaces": [
 		"apps/*",
